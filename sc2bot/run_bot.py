@@ -1,5 +1,6 @@
 # run_bot.py
 
+import os
 import random
 import cv2
 import math
@@ -15,8 +16,10 @@ from sc2.main import run_game               # function that facilitates actually
 from sc2.player import Bot, Computer        # wrapper to ensure between bot or computer agent.
 from sc2 import maps                        # method for loading maps.
 from sc2.ids.unit_typeid import UnitTypeId  # method for loading unit types.
-from sc2bot import PICKLE_FILE_PATH
+from sc2bot import ENVIRONMENT_DIR, PICKLE_FILE_PATH
 
+
+RESULTS_FILE_PATH = os.path.join(ENVIRONMENT_DIR, 'results.txt')
 SAVE_REPLAY = True
 total_steps = 10000 
 steps_for_pun = np.linspace(0, 1, total_steps)
@@ -336,9 +339,9 @@ if str(result) == "Result.Victory":
 else:
     rwd = -500
 
-with open("results.txt", "a") as f:
-    f.write(f"{result}\n")
-
+with open(RESULTS_FILE_PATH, "a") as f:
+    print("Result: %s" % str(result))
+    f.write("%s\n" % str(result))
 
 map = np.zeros((224, 224, 3), dtype=np.uint8)
 observation = map
@@ -348,6 +351,7 @@ data = {"state": map,
         "reward": rwd, 
         "action": None, 
         "done": True}
+
 with open(PICKLE_FILE_PATH, 'wb') as f:
     pickle.dump(data, f)
 
