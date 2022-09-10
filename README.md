@@ -3,14 +3,10 @@
 A project for building a Starcraft 2 bot using Machine Learning.
 
 
-## 
-- Link to traned model file: [Download here](https://www.dropbox.com/s/q56qc83zjwa2wyc/models.zip?dl=0)
-
-
 ## Overview
 
 If you want to spare some time and just test it out, I've provided a bit of trained data that can be used.
-- Link to traned model file: [Download here](https://www.dropbox.com/s/q56qc83zjwa2wyc/models.zip?dl=0)
+- Link to traned model file: [Download here](https://www.dropbox.com/sh/n6hwdmrircjodu6/AACh8GSkwtL1p6l4th5T1gISa?dl=0)
 
 
 In general the game at a basic level is actually fairly easy to grasp, though for it to be able to function in a competitive aspect a ton of factors will have to come into play but the baseline follows as such:
